@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\AdminController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::post('/', [HomeController::class, 'view'])->name('index');
+Route::get('/login', [AdminController::class, 'login'])->name('login');
+Route::post('/login', [AdminController::class, 'postLogin'])->name('post.login');
 Route::middleware(['auth','admin'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('', [AdminController::class, 'index'])->name('index');
 });

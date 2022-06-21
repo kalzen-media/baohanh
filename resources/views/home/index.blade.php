@@ -96,14 +96,26 @@
         <h1>Tra cứu thông tin bảo hành</h1>
         <p class="lead">Quý khách vui lòng nhập số điện thoại ở ô tìm kiếm để tra cứu lịch sử mua hàng và thông tin bảo hành sản phẩm</p>
         <p class="lead">
-            <form method="get">
+            <form method="get" action="{{ route('index') }}">
         <div class="input-group">
-  <input type="search" class="form-control rounded" placeholder="Nhập số điện thoại mua hàng" aria-label="Search" aria-describedby="search-addon" />
-  <button type="button" class="btn btn-outline-primary">Tra cứu</button>
+  <input type="search" class="form-control rounded" name="phone" value="{{ $warranty->phone??'' }}"  placeholder="Nhập số điện thoại mua hàng" aria-label="Search" aria-describedby="search-addon" />
+  <button type="submit" class="btn btn-outline-primary">Tra cứu</button>
 </div>
 </form>
         </p>
-        {!! $warranty !!}
+        @if (isset($warranty))
+        <div class="display-table text-start">
+          <div><strong>Khách hàng:</strong> <span> {{ $warranty->name}}</span></div>
+          <div><strong>Số điện thoại:</strong> <span> {{ $warranty->phone}}</span></div>
+          <div><strong>Địa chỉ:</strong> <span> {{ $warranty->address}}</span></div>
+          <div><strong>Sản phẩm:</strong> <span> {{ $warranty->product}}</span></div>
+          <div><strong>Ngày tạo đơn hàng:</strong> <span> {{ $warranty->start}}</span></div>
+          <div><strong>Ngày hết hạn bảo hành:</strong> <span> {{ $expired->format("d/m/Y") }} 23:59:59</span></div>
+        </div>
+        @endif
+        @if ($error)
+          {!! $error !!}
+        @endif
       </main>
     
       <footer class="mt-auto text-dark-50">
