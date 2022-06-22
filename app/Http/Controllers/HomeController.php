@@ -12,17 +12,20 @@ class HomeController extends Controller
     {
         if ($request->phone)
         {
-            $warranty = Warranty::where('phone', $request->phone)->first();
-            
-            if (!$warranty)
+            $warranty = Warranty::where('phone', $request->phone)->get();
+            //dd($warranty);
+            if (count($warranty) == 0)
             {
                 $error = "<p> Không tìm thấy lịch sử mua hàng! </p>";
                 return view('home.index', ['error' => $error]);
             }
             else{
-                $expired = Carbon::createFromFormat('d/m/Y H:i:s',$warranty->start)->addYear();
+                foreach ($warranty as $item)
+                {
+                $item->experied = Carbon::createFromFormat('d/m/Y H:i:s',$item->start)->addYear();
+                }
             }
-            return view('home.index', ['warranty' => $warranty, 'expired' => $expired]);
+            return view('home.index', ['warranty' => $warranty]);
         }
         return view('home.index');
     }
