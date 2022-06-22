@@ -113,7 +113,7 @@
           <div><strong>Ngày hết hạn bảo hành:</strong> <span> {{ $expired->format("d/m/Y") }} 23:59:59</span></div>
         </div>
         @endif
-        @if ($error)
+        @if (isset($error))
           {!! $error !!}
         @endif
       </main>
