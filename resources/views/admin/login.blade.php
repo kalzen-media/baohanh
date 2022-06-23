@@ -35,12 +35,12 @@
     <title>DashForge Responsive Bootstrap 4 Dashboard Template</title>
 
     <!-- vendor css -->
-    <link href="{{ asset('lib/@fortawesome/fontawesome-free/css/all.min.css'}}" rel="stylesheet">
-    <link href="../../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="{{asset('lib/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+    <link href="{{asset('lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
 
     <!-- DashForge CSS -->
-    <link rel="stylesheet" href="../../assets/css/dashforge.css">
-    <link rel="stylesheet" href="../../assets/css/dashforge.auth.css">
+    <link rel="stylesheet" href="{{asset('assets/css/dashforge.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/dashforge.auth.css')}}">
   </head>
   <body>
 
@@ -49,23 +49,24 @@
     <div class="content content-fixed content-auth">
       <div class="container">
 
-          <div class="sign-wrapper mg-lg-l-50 mg-xl-l-60">
+          <div class="sign-wrapper m-auto">
             <div class="wd-100p">
-              <h3 class="tx-color-01 mg-b-5">Sign In</h3>
-              <p class="tx-color-03 tx-16 mg-b-40">Welcome back! Please signin to continue.</p>
-
+              <h3 class="tx-color-01 mg-b-5">Đăng nhập</h3>
+              <p class="tx-color-03 tx-16 mg-b-40">Đăng nhập hệ thống quản trị thông tin bảo hành sản phẩm</p>
+            <form method="POST" action="{{ route('login') }}">
+            @csrf
               <div class="form-group">
                 <label>Email address</label>
-                <input type="email" class="form-control" placeholder="yourname@yourmail.com">
+                <input type="email" name="email" class="form-control" placeholder="yourname@yourmail.com">
               </div>
               <div class="form-group">
                 <div class="d-flex justify-content-between mg-b-5">
                   <label class="mg-b-0-f">Password</label>
-                  <a href="" class="tx-13">Forgot password?</a>
                 </div>
-                <input type="password" class="form-control" placeholder="Enter your password">
+                <input type="password" name="password" class="form-control" placeholder="Enter your password">
               </div>
-              <button class="btn btn-brand-02 btn-block">Sign In</button>
+              <button type="submit" class="btn btn-brand-02 btn-block">Đăng nhập</button>
+            </form>
            <!--   <div class="divider-text">or</div>
               <button class="btn btn-outline-facebook btn-block">Sign In With Facebook</button>
               <button class="btn btn-outline-twitter btn-block">Sign In With Twitter</button>
