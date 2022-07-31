@@ -126,7 +126,7 @@
                 @if ($loop->index == 0)
                 <div><strong>Khách hàng:</strong> <span> {{ $item->name}}</span></div>
                 <div><strong>Số điện thoại:</strong> <span> {{ $item->phone}}</span></div>
-                <div><strong>Địa chỉ:</strong> <span> {{ $item->address}}</span></div>
+                <div><strong>Địa chỉ:</strong> <span> {{ $item->address ?? $item->branch}}</span></div>
                 @endif
                 @endforeach
                 <div class="accordion mt-3" id="accordionFlushExample">

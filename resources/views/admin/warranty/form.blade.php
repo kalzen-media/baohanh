@@ -9,6 +9,10 @@
                 <input type="text" name="name" class="form-control" placeholder="Nhập tên khách hàng">
             </div>
             <div class="form-group">
+                <label class="d-block">Địa chỉ:</label>
+                <input type="text" name="address" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
                 <label class="d-block">Số điện thoại</label>
                 <input type="text" name="phone" class="form-control" placeholder="Nhập số điện thoại khách hàng">
             </div>
