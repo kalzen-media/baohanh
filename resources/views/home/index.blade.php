@@ -99,7 +99,7 @@
 
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-3">
-            <h2 class="text-center" style="color: 009FE3;font-weight: bold; font-size 2rem;">TỔNG KHO ĐIỆN MÁY VIỆT NAM</h2>
+            <h2 class="text-center" style="color: #009FE3;font-weight: bold;">TỔNG KHO ĐIỆN MÁY VIỆT NAM</h2>
         </header>
 
         <main class="px-2">
